@@ -15,27 +15,36 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        CCuenta miCuenta;
+        CCuenta cuentaUno;
         double saldoActual;
         
-        miCuenta = new CCuenta("Juan López","1000-2365-85-123456789",2500,0);
-        try 
+        cuentaUno = new CCuenta("Juan López","1000-2365-85-123456789",2500,0);
+        operacionesCuenta(cuentaUno, (float) 1.12); 
+    }
+
+    /**
+     *
+     * @param cuentaUno the value of cuentaUno
+     * @param ad the value of ad
+     */
+    public static void operacionesCuenta(CCuenta cuentaUno, float ad) {
+        double saldoActual;
+        try
         {
-            miCuenta.retirar(2300);
+            cuentaUno.retirar(2300);
         } catch (Exception e)
         {
             System.out.print("Fallo al retirar");
         }
-        
         try
         {
             System.out.println("Ingreso en cuenta");
-            miCuenta.ingresar(695);
+            cuentaUno.ingresar(695);
         } catch (Exception e)
         {
             System.out.print("Fallo al ingresar");
         }
-        saldoActual = miCuenta.estado();
+        saldoActual = cuentaUno.estado();
         System.out.println("El saldo actual es"+ saldoActual );
     }
 
